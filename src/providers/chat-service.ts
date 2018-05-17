@@ -48,20 +48,20 @@ export class ChatService {
 
     this.http.post(AppVariables.CHAT_SERVICE_URL+'chat', JSON.stringify(postParams)).subscribe((response: Response) => {
 
-if(response.data){
-        const mockMsg: ChatMessage = {
-        message_id: response.data.message_id,
-        from_user_id: response.data.from_user_id,
-        from_user_name: response.data.from_user_name,
-        from_user_avatar : response.data.from_user_avatar,
-        to_user_avatar: response.data.to_user_avatar,
-        to_user_id: response.data.to_user_id,
-        time: response.data.time,
-        message: response.data.message,
-        status: response.data.status
-      };
-         this.events.publish('chat:received', mockMsg, Date.now())
-}
+        if(response){
+                const mockMsg: ChatMessage = {
+                message_id: response.data.message_id,
+                from_user_id: response.data.from_user_id,
+                from_user_name: response.data.from_user_name,
+                from_user_avatar : response.data.from_user_avatar,
+                to_user_avatar: response.data.to_user_avatar,
+                to_user_id: response.data.to_user_id,
+                time: response.data.time,
+                message: response.data.message,
+                status: response.data.status
+              };
+                this.events.publish('chat:received', mockMsg, Date.now())
+        }
     });
 
 

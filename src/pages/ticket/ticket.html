@@ -1,0 +1,48 @@
+<!--
+  Generated template for the TicketPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Raise Ticket</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="ticketForm">
+
+  <ion-item>
+    <ion-label floating>Service Request Number</ion-label>
+    <ion-input [formControl]="ticketForm.controls['serviceReqNo']"
+        type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Service required by date</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY" [formControl]="ticketForm.controls['serviceReqDate']" required></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Service Request Desc</ion-label>
+
+      <ion-textarea [formControl]="ticketForm.controls['serviceReqDesc']" required></ion-textarea>
+  </ion-item>
+
+  <ion-row>
+    <ion-col text-center>
+      <button ion-button block color="secondary" [disabled]="(ticketForm.status=='INVALID')" (click)="createTicket()">
+        Create Request
+      </button>
+    </ion-col>
+  </ion-row>
+
+
+
+</form>
+
+</ion-content>

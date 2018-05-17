@@ -1,0 +1,106 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-apiai",
+        "scope": null,
+        "escapedName": "cordova-plugin-apiai",
+        "name": "cordova-plugin-apiai",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "e:\\ionic-chat"
+    ]
+  ],
+  "_from": "cordova-plugin-apiai@latest",
+  "_id": "cordova-plugin-apiai@1.7.4",
+  "_inCache": true,
+  "_location": "/cordova-plugin-apiai",
+  "_nodeVersion": "0.12.5",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-apiai-1.7.4.tgz_1468934570579_0.15496590500697494"
+  },
+  "_npmUser": {
+    "name": "sstepashka",
+    "email": "kuragin@speaktoit.com"
+  },
+  "_npmVersion": "3.8.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-apiai",
+    "scope": null,
+    "escapedName": "cordova-plugin-apiai",
+    "name": "cordova-plugin-apiai",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-apiai/-/cordova-plugin-apiai-1.7.4.tgz",
+  "_shasum": "56d8141094c69ac572c1b43d06d3947b5a68754c",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-apiai",
+  "_where": "e:\\ionic-chat",
+  "author": {
+    "name": "api.ai"
+  },
+  "bugs": {
+    "url": "https://github.com/api-ai/api-ai-cordova/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-apiai",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "dependencies": {},
+  "description": "Plugin makes it easy to integrate your Cordova application with https://api.ai natural language processing service.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "56d8141094c69ac572c1b43d06d3947b5a68754c",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-apiai/-/cordova-plugin-apiai-1.7.4.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=5.0.0"
+    }
+  ],
+  "gitHead": "ba88e32de9e4b4b1975f9ab6a8c2ccd703e38973",
+  "homepage": "https://github.com/api-ai/api-ai-cordova#readme",
+  "keywords": [
+    "language processing",
+    "voice recognition",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "Apache 2.0 License",
+  "maintainers": [
+    {
+      "name": "sstepashka",
+      "email": "kuragin@speaktoit.com"
+    },
+    {
+      "name": "xvir",
+      "email": "danil.skachkov@speaktoit.com"
+    }
+  ],
+  "name": "cordova-plugin-apiai",
+  "optionalDependencies": {},
+  "readme": "api-ai-cordova\n==============\n\n[![Build Status](https://travis-ci.org/api-ai/api-ai-cordova.svg?branch=master)](https://travis-ci.org/api-ai/api-ai-cordova)\n\nPlugin makes it easy to integrate your Cordova application with [api.ai](http://api.ai) natural language processing service. This plugin supports Android and iOS mobile operation systems.\n\nProject on Github [https://github.com/api-ai/api-ai-cordova](https://github.com/api-ai/api-ai-cordova)  \nPage in NPM [https://www.npmjs.com/package/cordova-plugin-apiai](https://www.npmjs.com/package/cordova-plugin-apiai)  \nGithub issues [https://github.com/api-ai/api-ai-cordova/issues](https://github.com/api-ai/api-ai-cordova/issues)  \nDemo application sources [https://github.com/api-ai/api-ai-cordova-sample](https://github.com/api-ai/api-ai-cordova-sample)  \n\n* [Installation](#installation)\n* [Usage](#usage)\n* [API](#api)\n    - [Request Options](#request-options)\n* [Supported Languages](#supported-languages)\n* [Promise-Based Wrapper](#promise-based-wrapper)\n\n\n# Installation\n* Make sure that [Cordova CLI](http://cordova.apache.org/#getstarted) is installed\n* Install api.ai plugin with Cordova CLI:\n```shell\ncordova plugin add cordova-plugin-apiai\n```\n\n# Usage\nAdd to your **index.js** file (typically in **js** folder) in function **onDeviceReady** following code\n```javascript\nApiAIPlugin.init(\n        {\n            clientAccessToken: \"YOUR_CLIENT_ACCESS_TOKEN\", // insert your client access key here\n            lang: \"en\" // set lang tag from list of supported languages\n        }, \n        function(result) { /* success processing */ },\n        function(error) { /* error processing */ }\n    );\n```\n\nAdd to your page with mic button function to make voice requests:\n```javascript\nfunction sendVoice() {\n    try {     \n      ApiAIPlugin.requestVoice(\n        {}, // empty for simple requests, some optional parameters can be here\n        function (response) {\n            // place your result processing here\n            alert(JSON.stringify(response));\n        },\n        function (error) {\n            // place your error processing here\n            alert(error);\n        });                \n    } catch (e) {\n        alert(e);\n    }\n}\n```\n\nIf you want to create voice level visualization use function ```levelMeterCallback``` to set callback for processing soundLevel:\n```javascript\nApiAIPlugin.levelMeterCallback(function(level) {\n   console.log(level);\n   // add visualization code here\n});\n```\n\nIf you want to handle start and stop listening events, add appropriate handlers:\n```javascript\nApiAIPlugin.setListeningStartCallback(function () {\n    console.log(\"listening started\");\n});\n\nApiAIPlugin.setListeningFinishCallback(function () {\n    console.log(\"listening stopped\");\n});\n```\n\n**Please note**, that handlers must be added before ```ApiAIPlugin.requestVoice``` call, like here:\n```javascript\nfunction sendVoice() {\n    try {    \n\n      // !!!\n      ApiAIPlugin.levelMeterCallback(function(level) {\n         console.log(level);\n      }); \n\n      ApiAIPlugin.requestVoice(...\n```\n\nThen add call ```sendVoice``` function from your button's ```onclick```:\n```html\n<div onclick=\"sendVoice();\">Mic</div>\n```\n\nIf you want make text requests add the following code:\n```javascript\nfunction sendText(query_text) {\n    try {\n        ApiAIPlugin.requestText(\n            {\n                query: query_text\n            },\n            function (response) {\n                // place your result processing here\n                alert(JSON.stringify(response));\n            },\n            function (error) {\n                // place your error processing here\n                alert(error);\n            });\n    } catch (e) {\n        alert(e);\n    }\n}\n```\n\nAlso you can use function to cancel current api.ai request:\n```javascript\nApiAIPlugin.cancelAllRequests();\n```\n\n# API\n```javascript\n// Initialize plugin\n//  options - JSON object - `{\n//                              clientAccessToken: \"your_access_token\",\n//                              lang: \"one_of_supported_languages\"\n//                           }`\n//  success - Function (optional) - callback for initialization success: function () {}\n//  error - Function (optional) - callback for initialization error: function (error) {}\nApiAIPlugin.init(options, success, error)\n\n// Start listening, then make voice request to api.ai service\n//  options - JSON object - voice request options (reserved for future use)\n//  success - Function (optional) - callback for request success `function (response) {}` where response is Object \n//  error - Function (optional) - callback for request error `function (error) {}` where error is String\nApiAIPlugin.requestVoice(options, success, error)\n\n// Make text request to api.ai service\n//  options - JSON object - `{ query: \"queryText\" }`\n//  success - Function (optional) - callback for request success `function (response) {}` where response is Object \n//  error - Function (optional) - callback for request error `function (error) {}` where error is String\nApiAIPlugin.requestText(options, success, error)\n\n// Set callback for sound level. Need to call only once after initialization\n//  callback - Function - function must be `function(level) { }`, level is float value from 0 to 1\nApiAIPlugin.levelMeterCallback(callback)\n\n// Cancel all pending requests\nApiAIPlugin.cancelAllRequests()\n\n// Stop current listening process and send request to server\nApiAIPlugin.stopListening()\n\n// Set callback for listening started event\n//  callback - Function - must be simple function without arguments: function () {} \nApiAIPlugin.setListeningStartCallback(callback)\n\n// Set callback for listening finished callback\n//  callback - Function - must be simple function without arguments: function () {}\nApiAIPlugin.setListeningFinishCallback(callback)\n\n// Set callback for getting partial recognition results (Available only on Android platform!)\n// callback - Function - must be `function(str) { }` with string argument\n// You can get the json array of strings with partial recognition results\nApiAIPlugin.setPartialResultsCallback(callback)\n```\n\n## Request Options\nThe `options` parameter may contains following fields:\n* `query` - text query, only appliable to `requestText` function\n* `contexts` - list of strings or objects, input context for the request (See [Contexts Quick Start](http://api.ai/docs/getting-started/quick-start-contexts.html) for more information about Contexts)\n    strings:\n    ```javascript\n    contexts: [ \"weather\", \"home\" ]\n    ```\n    objects:\n    ```javascript\n    contexts: [ { name: \"weather\", parameters: { location: \"London\" } }, { name: \"home\"} ]\n    ```\n\n* `resetContexts` - boolean flag, set it to true to reset current active contexts\n    ```javascript\n    resetContexts: true\n    ```\n\n* `entities` - array of entities that replace developer defined entities for this request only. The entity(ies) need to exist in the developer console. Each entity is the pair of name and `entries` array. Entries array contains one or more items with `value` and `synonyms` fields.\n    ```javascript\n    entities: [\n      {\n        name: \"dwarfs\",\n        entries: [\n          {\n            value: \"Ori\",\n            synonyms: [\n              \"Ori\",\n              \"Nori\"\n            ]\n          },\n          {\n            value: \"bifur\",\n            synonyms: [\n              \"Bofur\",\n              \"Bombur\"\n            ]\n          }\n        ]\n      }\n    ]\n    ```\n* `context` also may have `lifespan` property - integer number defining number of requests the context will influence\n    ```javascript\n    {\n        name: \"weather\",\n        lifespan: 2,\n        parameters: {\n            location: \"London\"\n        }\n    }\n    ```\n\nFor many samples see [tests](https://github.com/api-ai/api-ai-cordova/blob/master/tests/tests.js)\n\n# Supported Languages\n* en\n* es\n* ru\n* de\n* pt\n* pt-BR\n* es\n* fr\n* it\n* ja\n* ko\n* zh-CN\n* zh-HK\n* zh-TW\n\n# Promise-Based Wrapper\nThe promise-based wrapper was added for ease of use and better interoperability with other JavaScript code. Wrapper implemented using the [Q](https://github.com/kriskowal/q) library. You can use the wrapper through `ApiAIPromises` module. For example:\n```javascript\nApiAIPromises.requestText(\n{\n    query: \"Hello\"\n})\n.then(function (response) {\n    // some response processing\n    console.log(response.result.action);\n})\n.fail(function (error) {\n    // some error processing\n    console.log(error);\n});\n```\n\nMore samples you can find in the [tests](https://github.com/api-ai/api-ai-cordova/blob/master/tests/tests.js) module.\n\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/api-ai/api-ai-cordova.git"
+  },
+  "scripts": {},
+  "version": "1.7.4"
+}
