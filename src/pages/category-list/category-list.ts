@@ -16,7 +16,7 @@ import { TicketPage } from '../ticket/ticket';
 })
 export class CategoryListPage {
 
-  item;
+  items;
 
   constructor(params: NavParams,public nav: NavController) {
     //this.item = params.data.item;

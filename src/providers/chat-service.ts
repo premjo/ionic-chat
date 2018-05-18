@@ -46,9 +46,9 @@ export class ChatService {
       status: 'success'
     };
 
-    this.http.post(AppVariables.CHAT_SERVICE_URL+'chat', JSON.stringify(postParams)).subscribe((response: Response) => {
+    this.http.post(AppVariables.CHAT_SERVICE_URL+'chat', JSON.stringify(postParams)).subscribe((response: any) => {
 
-        if(response){
+        if(typeof response.data!= undefined){
                 const mockMsg: ChatMessage = {
                 message_id: response.data.message_id,
                 from_user_id: response.data.from_user_id,
