@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,Platform } from 'ionic-angular';
 import { Chart } from 'chart.js';
+import { AppVariables } from "../../config/app-variables";
 
 /**
  * Generated class for the DashboardPage page.
@@ -24,7 +25,24 @@ export class DashboardPage {
     doughnutChart: any;
     lineChart: any;
 
-    constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController, public platform: Platform) {
+
+        platform.ready().then((readySource) => {
+      console.log('Platform ready from', readySource);
+
+      var t = window.fcWidget.init({
+      token: AppVariables.FRESHCHAT_TOKEN,
+      host: AppVariables.FRESHCHAT_HOST,
+      //Have the widget open on load by default by setting the below value to true
+      open: true,
+      config: {
+        showFAQOnOpen: true,
+        hideFAQ: false,
+      }
+    });
+
+
+    });
 
     }
 

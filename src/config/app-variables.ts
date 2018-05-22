@@ -8,5 +8,8 @@ IT_HELP_DESK_IMG: './assets/admin.jpg',
 CHAT_USER_ID: '59635a7ea32def548343fa38',
 CHAT_USER_NAME: 'Niju',
 CHAT_USER_IMG: './assets/user.jpg',
+FRESHCHAT_TOKEN: '5796e77c-e85a-4a88-81e5-38b8234b8bdc',
+FRESHCHAT_APPID: '93cf65a1-3a7f-4d08-b93a-b880e607c067',
+FRESHCHAT_HOST: 'https://wchat.freshchat.com'
 
 }
