@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController,Platform } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { Chart } from 'chart.js';
 import { AppVariables } from "../../config/app-variables";
+import '../../assets/js/widget';
 
 /**
  * Generated class for the DashboardPage page.
@@ -9,40 +10,45 @@ import { AppVariables } from "../../config/app-variables";
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+declare var fcWidget: any;
 @IonicPage()
 @Component({
-  selector: 'page-dashboard',
-  templateUrl: 'dashboard.html',
+    selector: 'page-dashboard',
+    templateUrl: 'dashboard.html',
 })
+
 export class DashboardPage {
 
-  @ViewChild('barCanvas') barCanvas;
-  @ViewChild('doughnutCanvas') doughnutCanvas;
-  @ViewChild('lineCanvas') lineCanvas;
+    @ViewChild('barCanvas') barCanvas;
+    @ViewChild('doughnutCanvas') doughnutCanvas;
+    @ViewChild('lineCanvas') lineCanvas;
+
 
     barChart: any;
     doughnutChart: any;
     lineChart: any;
 
+
     constructor(public navCtrl: NavController, public platform: Platform) {
 
         platform.ready().then((readySource) => {
-      console.log('Platform ready from', readySource);
+            console.log('Platform ready from', readySource);
+            if (fcWidget) {
+                fcWidget.init({
 
-      var t = window.fcWidget.init({
-      token: AppVariables.FRESHCHAT_TOKEN,
-      host: AppVariables.FRESHCHAT_HOST,
-      //Have the widget open on load by default by setting the below value to true
-      open: true,
-      config: {
-        showFAQOnOpen: true,
-        hideFAQ: false,
-      }
-    });
+                    token: AppVariables.FRESHCHAT_TOKEN,
+                    host: AppVariables.FRESHCHAT_HOST,
+                    //Have the widget open on load by default by setting the below value to true
+                    open: true,
+                    config: {
+                        showFAQOnOpen: true,
+                        hideFAQ: false,
+                    }
+                });
+            }
 
 
-    });
+        });
 
     }
 
@@ -79,7 +85,7 @@ export class DashboardPage {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero:true
+                            beginAtZero: true
                         }
                     }]
                 }
@@ -150,5 +156,5 @@ export class DashboardPage {
 
         });
 
-}
+    }
 }
