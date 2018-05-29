@@ -35,6 +35,7 @@
     <plugin name="cordova-plugin-statusbar" spec="2.2.1" />
     <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
+    <plugin name="cordova-plugin-freshchat" spec="https://github.com/techaffinity/freshchat-phonegap.git" />
     <engine name="browser" spec="~5.0.3" />
     <engine name="ios" spec="^4.5.4" />
     <engine name="android" spec="^6.4.0" />

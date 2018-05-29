@@ -54,5 +54,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-freshchat": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/techaffinity/freshchat-phonegap.git"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

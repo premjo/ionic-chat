@@ -18,19 +18,25 @@
   <form [formGroup]="ticketForm">
 
   <ion-item>
-    <ion-label floating>Service Request Number</ion-label>
-    <ion-input [formControl]="ticketForm.controls['serviceReqNo']"
+    <ion-label floating>Subject</ion-label>
+    <ion-input [formControl]="ticketForm.controls['subject']"
         type="text" required></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Service required by date</ion-label>
-    <ion-datetime displayFormat="MM/DD/YYYY" [formControl]="ticketForm.controls['serviceReqDate']" required></ion-datetime>
-  </ion-item>
+  <ion-label>Priority </ion-label>
+  <ion-select [formControl]="ticketForm.controls['priority']">
+    <ion-option value="1">Low</ion-option>
+    <ion-option value="2">Medium</ion-option>
+    <ion-option value="3">High</ion-option>
+    <ion-option value="4">Urgent</ion-option>
+  </ion-select>
+</ion-item>
+
   <ion-item>
     <ion-label floating>Service Request Desc</ion-label>
 
-      <ion-textarea [formControl]="ticketForm.controls['serviceReqDesc']" required></ion-textarea>
+      <ion-textarea [formControl]="ticketForm.controls['description']" required></ion-textarea>
   </ion-item>
 
   <ion-row>

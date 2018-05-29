@@ -30,9 +30,9 @@ item;
    public loadingCtrl: LoadingController,
    public alertCtrl: AlertController) {
     this.ticketForm = this.formBuilder.group({
-      serviceReqNo: [''],
-      serviceReqDesc: [''],
-      serviceReqDate: ['']
+      subject: [''],
+      priority: [''],
+      description: ['']
     });
     this.item = navParams.data.item;
     console.log(this.ticketForm)
@@ -45,7 +45,15 @@ item;
   createTicket(){
      this.showLoading();
 
-    this.tp.postData(this.ticketForm.value).then((result) => {
+     let formData = this.ticketForm.value;
+      let ticket = {
+      priority : parseInt(formData.priority),
+      email :'preamniju@gamil.com',
+      status :2,
+      subject: formData.subject,
+      description : formData.description };
+
+    this.tp.postData(ticket).then((result) => {
      this.navCtrl.push(TabsPage);
 
     }, (err) => {

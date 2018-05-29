@@ -21,8 +21,11 @@ export class TicketProvider {
      console.log(ticketInfo)
     return new Promise((resolve, reject) => {
 
+       let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    headers = headers.set('Authorization', "Basic " + btoa("preamniju@gmail.com:Jo#00006"));
 
-      this.http.post(AppVariables.CHAT_SERVICE_URL+'ticket', JSON.stringify(ticketInfo))
+      this.http.post(AppVariables.FRESHDESK_URL+'api/v2/tickets', JSON.stringify(ticketInfo),{ headers: headers })
         .subscribe(res => {
           resolve(res);
         }, (err) => {

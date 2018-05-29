@@ -3,7 +3,9 @@ import { IonicPage, NavController, App  } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import {LoginPage} from '../login/login';
 import { AppVariables } from "../../config/app-variables";
+import '../../assets/js/widget';
 
+declare var fcWidget: any;
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -63,6 +65,7 @@ export class HomePage {
 
   logout(){
       localStorage.clear();
+      fcWidget.hideChat();
       setTimeout(() => this.backToWelcome(), 1000);
   }
 

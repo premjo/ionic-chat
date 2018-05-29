@@ -1,3 +1,18 @@
 page-login {
+.logo{
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+}
+.logo-row.row {
+	margin-top: 80px;
+}
 
+.scroll-content{
+    background: url("../../assets/Login-Screen-BG.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+
+}
 }

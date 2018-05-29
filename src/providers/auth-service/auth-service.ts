@@ -21,7 +21,6 @@ export class AuthServiceProvider {
    postData(credentials, type) {
     return new Promise((resolve, reject) => {
 
-
       let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     headers = headers.set('Authorization', "Bearer " + AppVariables.APP_TOKEN);
@@ -34,6 +33,8 @@ export class AuthServiceProvider {
           reject(err);
         });
     });
+
+
 
   }
 
