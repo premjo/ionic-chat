@@ -1,0 +1,45 @@
+page-landing {
+
+
+    .pins{
+      column-count: 2;
+    }
+
+    .pin {
+      display: inline-block;
+      margin: 8 2px 18px;
+      padding: 25px;
+    }
+
+    .titulo{
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .icons {
+	font-size: 65px;
+	margin-top: 10px;
+    }
+
+    .circle {
+   width: 90px;
+   height: 90px;
+   background-color: #fff;
+   -moz-border-radius: 70px;
+   -webkit-border-radius: 70px;
+   border-radius: 70px;
+   border: 1px solid #fff;
+   text-align: center;
+}
+
+.scroll-content{
+    background: url("../../assets/Login-Screen-BG.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+
+}
+}
+
+
