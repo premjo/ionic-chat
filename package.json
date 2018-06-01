@@ -27,7 +27,7 @@
     "chart.js": "^2.7.2",
     "cordova-android": "^6.4.0",
     "cordova-browser": "~5.0.3",
-    "cordova-ios": "^4.5.4",
+    "cordova-ios": "4.4.0",
     "cordova-plugin-apiai": "^1.7.4",
     "cordova-plugin-console": "^1.1.0",
     "cordova-plugin-device": "^2.0.0",
@@ -41,7 +41,8 @@
     "ng2-charts": "^1.6.0",
     "rxjs": "5.5.6",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.19"
+    "zone.js": "0.8.19",
+    "cordova-plugin-freshchat": "https://github.com/techaffinity/freshchat-phonegap.git"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.7",
@@ -69,8 +70,8 @@
   "cordova": {
     "platforms": [
       "browser",
-      "ios",
-      "android"
+      "android",
+      "ios"
     ],
     "plugins": {
       "cordova-plugin-console": {},

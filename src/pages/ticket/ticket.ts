@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,LoadingController, Loading, AlertCo
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TicketProvider } from '../../providers/ticket/ticket';
 import { TabsPage } from '../tabs/tabs';
+import {LandingPage} from '../landing/landing';
 
 
 /**
@@ -54,7 +55,7 @@ item;
       description : formData.description };
 
     this.tp.postData(ticket).then((result) => {
-     this.navCtrl.push(TabsPage);
+     this.navCtrl.push(LandingPage);
 
     }, (err) => {
       this.showError(err.message)

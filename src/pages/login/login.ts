@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController, Loading, AlertController  } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { TabsPage } from '../tabs/tabs';
-import { SignupPage } from '../signup/signup';
+import { LandingPage } from '../landing/landing';
 
 /**
  * Generated class for the LoginPage page.
@@ -42,7 +42,7 @@ export class LoginPage {
       this.responseData = result;
       if(this.responseData.success){
       localStorage.setItem('userData', JSON.stringify(this.responseData.user));
-      this.navCtrl.push(TabsPage);
+      this.navCtrl.push(LandingPage);
       }else{
          this.showError(this.responseData.message);
          }

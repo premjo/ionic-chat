@@ -1,3 +1,18 @@
 page-ticket {
+.scroll-content{
+    background: url("../assets/imgs/Login-Screen-BG.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
 
+}
+.item {
+    background: transparent;
+}
+.label {
+      color: #fff;
+}
+ion-input, ion-textarea{
+color: black;
+}
 }

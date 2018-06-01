@@ -23,7 +23,7 @@ export class TicketProvider {
 
        let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    headers = headers.set('Authorization', "Basic " + btoa("preamniju@gmail.com:Jo#00006"));
+    headers = headers.set('Authorization', "Basic " + btoa(AppVariables.FRESHDESK_USERNAME+":"+AppVariables.FRESHDESK_PWD));
 
       this.http.post(AppVariables.FRESHDESK_URL+'api/v2/tickets', JSON.stringify(ticketInfo),{ headers: headers })
         .subscribe(res => {

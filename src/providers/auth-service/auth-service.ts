@@ -21,17 +21,19 @@ export class AuthServiceProvider {
    postData(credentials, type) {
     return new Promise((resolve, reject) => {
 
-      let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    headers = headers.set('Authorization', "Bearer " + AppVariables.APP_TOKEN);
+      resolve({success:'true',user:{ _id: AppVariables.IT_HELP_DESK_ID, token:''}});
 
-    //debugger
-      this.http.post(AppVariables.AUTH_URL, credentials,{ headers: headers } )
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
+    // let headers = new HttpHeaders();
+    // headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    // headers = headers.set('Authorization', "Bearer " + AppVariables.APP_TOKEN);
+
+    // //debugger
+    //   this.http.post(AppVariables.AUTH_URL, credentials,{ headers: headers } )
+    //     .subscribe(res => {
+    //       resolve(res);
+    //     }, (err) => {
+    //       reject(err);
+    //     });
     });
 
 

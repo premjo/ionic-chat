@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
-import { TicketPage } from '../ticket/ticket';
+import {TicketPage} from '../ticket/ticket';
 import {HomePage} from '../home/home';
 import {FaqPage} from '../faq/faq';
 import {FreshChatPage} from '../fresh-chat/fresh-chat';
