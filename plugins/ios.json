@@ -10,13 +10,7 @@
     "cordova-plugin-apiai": {
       "PACKAGE_NAME": "com.org.workspace"
     },
-    "cordova-plugin-console": {
-      "PACKAGE_NAME": "com.org.workspace"
-    },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.org.workspace"
-    },
-    "cordova-plugin-freshchat": {
       "PACKAGE_NAME": "com.org.workspace"
     },
     "cordova-plugin-splashscreen": {
@@ -29,6 +23,9 @@
       "PACKAGE_NAME": "com.org.workspace"
     },
     "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.org.workspace"
+    },
+    "cordova-plugin-freshchat": {
       "PACKAGE_NAME": "com.org.workspace"
     }
   },

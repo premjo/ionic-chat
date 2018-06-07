@@ -39,16 +39,16 @@ export class FreshChatPage {
       //  console.log(((window as any).Freshchat));
       // console.log((window as any).FreshChat);
       if ((window as any).Freshchat) {
-                (window as any).FreshChat.init({
-                      appId       : AppVariables.FRESHCHAT_APPID,
-                      appKey      : AppVariables.FRESHCHAT_TOKEN,
-                      gallerySelectionEnabled   : true,
-                      cameraCaptureEnabled      : true,
-                      teamMemberInfoVisible     : true
-                    }, function(success){
-                      this.showError("im success")
-                      console.log("This is called form the init callback");
-                  });
+                // (window as any).FreshChat.init({
+                //       appId       : AppVariables.FRESHCHAT_APPID,
+                //       appKey      : AppVariables.FRESCHAT_APPKEY,
+                //       gallerySelectionEnabled   : true,
+                //       cameraCaptureEnabled      : true,
+                //       teamMemberInfoVisible     : true
+                //     }, function(success){
+                //       this.showError("im success")
+                //       console.log("This is called form the init callback");
+                //   });
 
       } else {
         console.log("Something is wrong!!!!!")
@@ -64,7 +64,7 @@ export class FreshChatPage {
   initialiseFreshChat() {
     this.showError('Hello im here to init');
     if ((window as any).Freshchat) {
-     (window as any).Freshchat.showFAQs();
+   (window as any).Freshchat.showConversations();
     }
       this.showError('success');
     // (window as any).FreshChat.init({
@@ -87,7 +87,7 @@ export class FreshChatPage {
     if ((window as any).Freshchat) {
 
       this.showError('Im here')
-        (window as any).Freshchat.showFAQs();
+        (window as any).Freshchat.showConversations();
       this.showError('@@@');
     } else {
       this.showError('byeee')

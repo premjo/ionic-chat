@@ -26,8 +26,8 @@ export class MyApp {
       }).present();
 
         (window as any).FreshChat.init({
-          appId: AppVariables.FRESHCHAT_APPID,
-          appKey: AppVariables.FRESHCHAT_TOKEN,
+          appId: '93cf65a1-3a7f-4d08-b93a-b880e607c067',
+          appKey: '6794f43e-c2cd-4362-8f26-d069c3c52c7e',      
           gallerySelectionEnabled: true,
           cameraCaptureEnabled: true,
           teamMemberInfoVisible: true
